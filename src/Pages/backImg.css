@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+}
+::selection{
+    background: red;
+    color: black;
+}
+input.ant-input.ant-input-lg{
+    background: black;
+    border: none;
+    color: white;
+}
+
+img, svg, video, canvas, audio, iframe, embed, object{
+    display: inline-block;
+}
+.ant-input-password-icon.anticon{
+    color: white;
+}
+.ant-collapse-content > .ant-collapse-content-box,
+.ant-drawer-body,
+.ant-drawer-header,
+.ant-collapse > .ant-collapse-item > .ant-collapse-header {
+    color: white;
+    background: black;
+
+}
+.ant-drawer-header {
+     border-radius: 0 0 0 0 ; -webkit-border-radius: 0 0 0 0 ; -moz-border-radius: 0 0 0 0 ; -ms-border-radius: 0 0 0 0 ; -o-border-radius: 0 0 0 0 ;
+     border-bottom: 0.4px solid gray;
+
+}
+.ant-row {
+    display: flex;
+    flex-flow: row ;
+}
