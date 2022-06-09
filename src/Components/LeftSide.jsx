@@ -13,10 +13,10 @@ function LeftSide(props) {
     return (
         <Col
             xs={0}
-            sm={1}
+            sm={0}
             md={6}
-            lg={7}
-            style={{height:'100vh', marginTop:'30px'}}>
+            lg={4}
+            style={{height:'100vh', marginTop:'30px', position: 'sticky', top: '100px'}}>
             <Col className='text-white lg:mr-12 font-semibold text-2xl space-y-4'>
                 {
                     sideItems.map((value, index)=>{

@@ -4,8 +4,9 @@ import * as Yup from 'yup';
 import {Button, DatePicker, Form, Input, InputNumber, Select} from 'antd'
 import 'antd/dist/antd.css';
 import FormItemLabel from "antd/es/form/FormItemLabel";
+import {Link} from "react-router-dom";
 
-const Forms = () => {
+const SignupForm = () => {
     const fieldName = [
         {name: 'firstName', ph: 'Enter your first name', label:'First Name', type:'text'},
         {name: 'lastName', ph: 'Enter your last name', label:'Last Name', type:'text'},
@@ -52,18 +53,20 @@ const Forms = () => {
     })
         })
     return (
-        <div className="xl:w-[600px] w-full mx-auto ">
+        <div className="w-full sm:w-[600px] mx-auto my-12 bg-black rounded-2xl">
             <Form
+
                 size={"large"}
-                className='border border-white w-full rounded-2xl' style={{padding:50}}
+                className='w-full rounded-2xl' style={{padding:50}}
                 name="register"
                   onFinish={formik.handleSubmit}>
-            <h1 className='text-5xl mb-12 text-center text-white'>Register</h1>
+            <h1 className='text-5xl mb-12 text-red-700 text-center'>Sign Up</h1>
                 {
                     fieldName.map((value, index)=>{
                         let x = value.name
                         return(
                             <Form.Item
+                                className='relative sm:-left-8'
                                 fieldKey={index}
                                 labelCol={{ span: 7 }}
                                 label={<label style={{ color: "white" }}>{value.label}</label>}
@@ -98,6 +101,8 @@ const Forms = () => {
                     })
                 }
                 <Form.Item
+                    className='relative sm:-left-8'
+
                     labelCol={{ span: 7 }}
                     label={<label style={{ color: "white" }}>Password</label>}
                     required>
@@ -116,6 +121,8 @@ const Forms = () => {
                 </Form.Item>
 
                 <Form.Item
+                                                    className='relative sm:-left-8'
+
                     labelCol={{ span: 7 }}
                     label={<label style={{ color: "white" }}>Confirm Password</label>}
                     required>
@@ -132,18 +139,15 @@ const Forms = () => {
                         <span className='text-red-400'>{formik.errors.confirmPassword}</span>
                     )}
                 </Form.Item>
-
                 <Form.Item
-                    wrapperCol={{
-                        offset: 20,
-                        span: 0,
-                    }}>
-                    <Button style={{borderRadius: 8, background: 'red', border: "none"}} type={"primary"}  htmlType="submit">Sign Up</Button>
+               >
+                    <Button style={{borderRadius: 8, background: 'red', border: "none"}} className='ml-0 sm:ml-[116px]' type={"primary"}  htmlType="submit">Sign Up</Button>
                 </Form.Item>
+                <p className='text-white text-center'>You Already Have An Account? <Link to='/login'>Login</Link></p>
         </Form>
         </div>
     );
 
 };
 
-export default Forms;
+export default SignupForm;

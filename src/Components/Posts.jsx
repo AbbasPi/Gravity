@@ -2,12 +2,13 @@ import React from 'react';
 import {Avatar, Button, Col, Input} from "antd";
 import {useLocation} from "react-router-dom";
 import Cards from "./Card";
+import DrawerAnt from "./DrawerAnt";
 
-function Main({profile}) {
+function Posts({profile}) {
     const location = useLocation()
-    let x = 10
+    let x = 11
     let y = 18
-    let z = 23
+    let z = 24
     if (profile) {
         x = 24
         y = 24
@@ -19,12 +20,13 @@ function Main({profile}) {
             sm={z}
             md={y}
             lg={x}
-            style={{border: '2px solid #344048', height: 'auto', color:"white", background: 'black'}}>
+            style={{border: '2px solid #344048', height: 'auto', color:"white", background: 'black', marginTop: '14px', borderRadius: '18px', overflow: 'hidden'}}>
             <>
-            <div className='sticky top-0 w-full z-50'>
+
+            <div className=' w-full z-50'>
                 <div onClick={()=> window.scrollTo({top: 0, behavior: 'smooth'})}
                      className='text-2xl font-bold capitalize hover:cursor-pointer bg-black bg-opacity-80 p-2 '>
-                    {location.pathname.slice(1)}
+                    {/*{location.pathname.slice(1)}*/}
                 </div>
             </div>
                 {
@@ -44,4 +46,4 @@ function Main({profile}) {
     );
 }
 
-export default Main;
+export default Posts;

@@ -1,20 +1,24 @@
 import React from 'react';
-import { Layout } from 'antd';
-import Siders from '../Components/Sider'
-const { Header, Footer, Sider, Content } = Layout;
+import {Routes, Route} from "react-router-dom";
+import {Col, Row} from "antd";
+import LeftSide from "../Components/LeftSide";
+import Posts from "../Components/Posts";
+import Profile from "./Profile";
+import Settings from "./Settings";
+import RightSide from "../Components/RightSide";
 
 function Home(props) {
     return (
-        <div>
-                <Layout>
-                    <Sider><Siders/></Sider>
-                    <Layout>
-                        <Header>Header</Header>
-                        <Content>Content</Content>
-                        <Footer>Footer</Footer>
-                    </Layout>
-                </Layout>
-            </div>
+        <Row style={{height: '100vh%'}}>
+            <LeftSide/>
+            <Routes>
+                <Route path='' element={<Posts/>}/>
+                <Route path='profile' element={<Profile/>}/>
+                <Route path='settings' element={<Settings/>}/>
+            </Routes>
+            <Col lg={1}/>
+            <RightSide/>
+        </Row>
     );
 }
 

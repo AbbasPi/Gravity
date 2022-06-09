@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import { Col, Row } from 'antd';
-import {Link} from "react-router-dom";
+import {Route, Routes} from "react-router-dom";
 
-function Landing(props) {
+function About(props) {
     const [move, setMove] = useState('translate-x-[545px]')
     const [move2, setMove2] = useState('-translate-x-[530px]')
     useEffect(()=>{
@@ -20,7 +20,7 @@ function Landing(props) {
         }, 3000)
     }, [])
     return (
-        <div className='min-h-screen text-red-500 '>
+        <div className='h-[70vh] text-red-500 mt-2 mb-32 '>
             <Row style={{display: 'flex', justifyContent: 'center'}}>
                 <Col
                     xs={{
@@ -32,7 +32,7 @@ function Landing(props) {
                         offset: 0,
                     }}
                 >
-                    <img src={require('../Utils/Removal-141.png')} alt="" className={`w-[500px] -mt-[40px] hidden md:block transition ease-in-out duration-1000 ${move}`}/>
+                    <img path='default' src={require('../Utils/Removal-141.png')} alt="" className={`w-[500px] -mt-[40px] hidden md:block transition ease-in-out duration-1000 ${move}`}/>
                 </Col>
                 <Col style={{textAlign: 'center', display: "flex", justifyContent: 'center'}}
                     xs={{
@@ -44,7 +44,7 @@ function Landing(props) {
                         offset: 2,
                     }}
                 >
-                    <div className='md:mt-40 mt-12 w-[500px] mx-auto text-center'>
+                    <div className='md:mt-40 mt-12  w-[500px] mx-auto text-center'>
                         <h1 className='text-5xl w-[300px] md:w-full font-bold text-gray-100 '>
                             Gravity
                         </h1>
@@ -52,9 +52,9 @@ function Landing(props) {
                             Connected Friends And Family
                         </p>
                         <p className='text-[22px] w-[300px] md:w-full text-gray-300'>
-                            The term social media networking refers <br/> to the use
-                            of internet-based social media <br/> sites to stay connected
-                            with friends family, <br/> colleagues, customers, or clients
+                            The term social media networking refers to the use
+                            of internet-based social media sites to stay connected
+                            with friends family, colleagues, customers, or clients
                         </p>
                     </div>
                 </Col>
@@ -75,4 +75,4 @@ function Landing(props) {
     );
 }
 
-export default Landing;
+export default About;

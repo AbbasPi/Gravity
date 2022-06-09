@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Layout, Menu } from 'antd';
-import Forms from '../Components/Form'
+import Forms from './SignupForm'
 import {
     MenuUnfoldOutlined,
     MenuFoldOutlined,
