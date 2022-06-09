@@ -8,7 +8,7 @@ function LeftSide(props) {
         {name: 'Home', icon: <HomeOutlined className='text-[28px]'/>, link: '/'},
         {name: 'Profile', icon: <UserOutlined className='text-[28px]'/>, link: '/profile'},
         {name: 'Settings', icon: <SettingOutlined className='text-[28px]'/>, link: '/settings'},
-        {name: 'Log Out', icon: <LogoutOutlined className='text-[28px]'/>, link: '/register'},
+        {name: 'Log Out', icon: <LogoutOutlined className='text-[28px]'/>, link: '/'},
     ]
     return (
         <Col

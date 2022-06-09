@@ -1,6 +1,6 @@
 import React from 'react';
 import LoginForm from "../Components/LoginFrom"
-    import './backImg.css';
+    import './style.css';
 function LoginPage(props) {
     return (
         <>
