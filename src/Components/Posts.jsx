@@ -1,11 +1,14 @@
-import React from 'react';
-import {Avatar, Button, Col, Input} from "antd";
-import {useLocation} from "react-router-dom";
+import React, {useState} from 'react';
+import {Button, Col, Input} from "antd";
 import Cards from "./Card";
-import DrawerAnt from "./DrawerAnt";
+import {useDispatch} from "react-redux";
+import {createPost} from "../features/posts/postsSlice";
 
 function Posts({profile}) {
-    const location = useLocation()
+    const [author, setAuthor] = useState('')
+    const [content, setContent] = useState('')
+    const [image, setImage] = useState('')
+    const dispatch = useDispatch()
     let x = 11
     let y = 18
     let z = 24
@@ -14,27 +17,36 @@ function Posts({profile}) {
         y = 24
         z = 24
     }
+
+    const onPostAdded = ()=>{
+        if (author && content){
+            dispatch(createPost(author, content, image))
+            setAuthor('')
+            setContent('')
+        }
+    }
     return (
         <Col
             xs={z}
             sm={z}
             md={y}
             lg={x}
-            style={{border: '2px solid #344048', height: 'auto', color:"white", background: 'black', marginTop: '14px', borderRadius: '18px', overflow: 'hidden'}}>
+            style={{border: '2px solid #344048', height: 'auto', color:"white", background: 'black', marginBlock: '14px', borderRadius: '18px', overflow: 'hidden'}}>
             <>
-
-            <div className=' w-full z-50'>
-                <div onClick={()=> window.scrollTo({top: 0, behavior: 'smooth'})}
-                     className='text-2xl font-bold capitalize hover:cursor-pointer bg-black bg-opacity-80 p-2 '>
-                    {/*{location.pathname.slice(1)}*/}
-                </div>
-            </div>
                 {
                  profile !== true &&
                 <div  style={{ position:'relative'}}>
-                    <Input className='h-32' style={{background:'black'}} size="large" placeholder="What's Up?" prefix={
-                        <Avatar style={{width: 50, height: 50, marginRight:8}} src="https://i.pinimg.com/736x/0c/ac/43/0cac43143db225aca7785f6c6619aea7.jpg" />} />
-                <Button style={{position: "absolute", right:12, bottom: 12, zIndex: '100', borderRadius: 12, width: 100, border: "red", color:'red'}}>Post</Button>
+                    <label className='ml-3'> Author:  </label>
+                    <Input  value={author} onChange={e=> setAuthor(e.target.value)}
+                                     style={{background:'black', minHeight: '50px', color: 'white'}} placeholder="What's Up?"/>
+                    <label className='ml-3'> Content:  </label>
+                    <Input.TextArea  value={content} onChange={e=> setContent(e.target.value)}
+                                     style={{background:'black', minHeight: '100px', color: 'white'}} placeholder="What's Up?"/>
+                    <label className='ml-3'> Image Link:  </label>
+                    <Input  value={image} onChange={e=> setImage(e.target.value)}
+                                     style={{background:'black', minHeight: '60px', color: 'white'}} placeholder="What's Up?"/>
+                <Button onClick={()=>onPostAdded()}
+                    style={{position: "absolute", right:12, bottom: 12, zIndex: '100', borderRadius: 12, width: 100, border: "red", color:'red'}}>Post</Button>
                 </div>
                 }
                 <div>

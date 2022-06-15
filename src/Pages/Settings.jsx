@@ -1,6 +1,5 @@
 import {Checkbox, Col, Collapse, Form, Input, Row} from 'antd';
 import React from 'react';
-import DrawerAnt from "../Components/DrawerAnt";
 const { Panel } = Collapse;
 
 const Settings = () => {

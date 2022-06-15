@@ -4,7 +4,7 @@ import {Route, Routes} from "react-router-dom";
 
 function About(props) {
     const [move, setMove] = useState('translate-x-[545px]')
-    const [move2, setMove2] = useState('-translate-x-[530px]')
+    const [move2, setMove2] = useState('-translate-x-[544px]')
     useEffect(()=>{
         setTimeout(()=>{
         setMove('-translate-x-0')

@@ -1,7 +1,6 @@
 import React from 'react';
 import {Col} from "antd";
 import Posts from "../Components/Posts";
-import DrawerAnt from "../Components/DrawerAnt";
 
 function Profile(props) {
     return (

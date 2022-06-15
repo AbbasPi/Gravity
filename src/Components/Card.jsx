@@ -1,25 +1,12 @@
 import { LikeOutlined, CommentOutlined, ShareAltOutlined   } from '@ant-design/icons';
 import {Avatar, Card, Image, Skeleton, Switch} from 'antd';
 import React, {useEffect, useState} from 'react';
+import {useSelector} from "react-redux";
+import {allPosts} from "../features/posts/postsSlice";
 const { Meta } = Card;
 
 const Cards = () => {
-    const data = [
-        {title: 'Abbas Salah', description: 'This is description', img: 'https://dthezntil550i.cloudfront.net/3e/latest/3e2012220133466930011173110/1280_960/c4da9ec5-c334-4668-8093-68ea5836f798.jpg'},
-        {title: 'Abbas Salah', description: 'This is description', img: 'https://dthezntil550i.cloudfront.net/3e/latest/3e2012220133466930011173110/1280_960/c4da9ec5-c334-4668-8093-68ea5836f798.jpg'},
-        {title: 'Abbas Salah', description: 'This is description', img: 'https://dthezntil550i.cloudfront.net/3e/latest/3e2012220133466930011173110/1280_960/c4da9ec5-c334-4668-8093-68ea5836f798.jpg'},
-        {title: 'Abbas Salah', description: 'This is description', img: 'https://dthezntil550i.cloudfront.net/3e/latest/3e2012220133466930011173110/1280_960/c4da9ec5-c334-4668-8093-68ea5836f798.jpg'},
-        {title: 'Abbas Salah', description: 'This is description', img: 'https://dthezntil550i.cloudfront.net/3e/latest/3e2012220133466930011173110/1280_960/c4da9ec5-c334-4668-8093-68ea5836f798.jpg'},
-        {title: 'Abbas Salah', description: 'This is description', img: 'https://dthezntil550i.cloudfront.net/3e/latest/3e2012220133466930011173110/1280_960/c4da9ec5-c334-4668-8093-68ea5836f798.jpg'},
-        {title: 'Abbas Salah', description: 'This is description', img: 'https://dthezntil550i.cloudfront.net/3e/latest/3e2012220133466930011173110/1280_960/c4da9ec5-c334-4668-8093-68ea5836f798.jpg'},
-        {title: 'Abbas Salah', description: 'This is description', img: 'https://dthezntil550i.cloudfront.net/3e/latest/3e2012220133466930011173110/1280_960/c4da9ec5-c334-4668-8093-68ea5836f798.jpg'},
-        {title: 'Abbas Salah', description: 'This is description', img: 'https://dthezntil550i.cloudfront.net/3e/latest/3e2012220133466930011173110/1280_960/c4da9ec5-c334-4668-8093-68ea5836f798.jpg'},
-        {title: 'Abbas Salah', description: 'This is description', img: 'https://dthezntil550i.cloudfront.net/3e/latest/3e2012220133466930011173110/1280_960/c4da9ec5-c334-4668-8093-68ea5836f798.jpg'},
-        {title: 'Abbas Salah', description: 'This is description', img: 'https://dthezntil550i.cloudfront.net/3e/latest/3e2012220133466930011173110/1280_960/c4da9ec5-c334-4668-8093-68ea5836f798.jpg'},
-    ]
-
-
-
+    const data = useSelector(allPosts)
     const [loading, setLoading] = useState(true);
     useEffect(()=>{
         setTimeout(()=>{
@@ -33,9 +20,10 @@ const Cards = () => {
                 data.map((value, index)=>{
                     return(
             <Card
+                key={value.id}
                 style={{
                     width:' 90%',
-                    marginTop: 16,
+                    marginBlock: 16,
                     marginInline: "auto",
                     background: "black",
                     color: 'white',
@@ -45,14 +33,24 @@ const Cards = () => {
                 }}
                 loading={loading}
             >
-
-                <Meta
-                    style={{display: 'flex', marginBottom: 20}}
-                    avatar={<Avatar style={{marginRight: 12}} src={value.img} />}
-                      title={value.title}
-                      description={value.description}
-                      prefixCls={'text-white'}
-                />
+                <div className='w-full mb-4'>
+                    <div className='flex space-x-4'>
+                        <div className='-mt-2'>
+                        <Avatar size={'large'} src={value.img} />
+                        </div>
+                        <p className='text-xl'>
+                        {value.user}
+                        </p>
+                    </div>
+                    <div className='text-xl'>{value.content}</div>
+                </div>
+                {/*<Meta*/}
+                {/*    style={{display: 'flex', marginBottom: 20}}*/}
+                {/*    avatar={<Avatar style={{marginRight: 12}} src={value.img} />}*/}
+                {/*      title={value.title}*/}
+                {/*      description={value.description}*/}
+                {/*      prefixCls={'text-white'}*/}
+                {/*/>*/}
                 <div className='flex justify-center'>
                     <Image
                         style={{objectFit: 'cover ', width: 300, height: 340}}
