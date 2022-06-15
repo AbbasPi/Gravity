@@ -48,8 +48,10 @@ function Posts({profile}) {
                     <label className='ml-3 text-2xl'> Image URL:  </label>
                     <Input  value={image} onChange={e=> setImage(e.target.value)}
                                      style={{background:'black', minHeight: '60px', color: 'white'}}/>
-                <Button disabled={!canSave} onClick={onPostAdded}
-                    style={{borderRadius: 12, width: 100, color:'blue', marginLeft: 2, marginTop: 12, fontSize: 17}}>Post</Button>
+                <div className='flex justify-end'>
+                    <button disabled={!canSave} onClick={onPostAdded}
+                    className={`bg-blue-500 px-8 py-2 text-2xl m-2  ${!canSave ? 'cursor-no-drop' : 'hover:bg-blue-600'} rounded-xl`}>Post</button>
+                </div>
                 </div>
                 }
                 <div>
