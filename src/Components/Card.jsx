@@ -1,13 +1,14 @@
-import { LikeOutlined, CommentOutlined, ShareAltOutlined   } from '@ant-design/icons';
-import {Avatar, Card, Image, Skeleton, Switch} from 'antd';
+import { LikeOutlined, CommentOutlined, ShareAltOutlined, DeleteOutlined, EditOutlined } from '@ant-design/icons';
+import {Avatar, Card, Image} from 'antd';
 import React, {useEffect, useState} from 'react';
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {allPosts} from "../features/posts/postsSlice";
-const { Meta } = Card;
-
+import {deletePost} from '../features/posts/postsSlice'
+import {Link} from "react-router-dom";
 const Cards = () => {
     const data = useSelector(allPosts)
     const [loading, setLoading] = useState(true);
+    const dispatch = useDispatch()
     useEffect(()=>{
         setTimeout(()=>{
             setLoading(false)
@@ -35,22 +36,25 @@ const Cards = () => {
             >
                 <div className='w-full mb-4'>
                     <div className='flex space-x-4'>
-                        <div className='-mt-2'>
-                        <Avatar size={'large'} src={value.img} />
+                        <div className='-mt-3'>
+                        <Avatar style={{width: 50, height: 50}} src={value.img} />
                         </div>
-                        <p className='text-xl'>
-                        {value.user}
-                        </p>
+                        <div className='text-xl flex justify-between w-full mb-8'>
+                        <div>
+                            {value.user}
+                        </div>
+                            <div className='space-x-2'>
+                        <button onClick={()=>dispatch(deletePost({id: value.id}))}>
+                            <DeleteOutlined  className='text-2xl hover:bg-red-700 rounded-full p-2'/>
+                        </button>
+                            <Link to={`/edit-post/${value.id}`}  className='text-2xl text-white hover:bg-blue-700 rounded-full px-2 pb-2'>
+                            <EditOutlined />
+                            </Link>
+                            </div>
+                        </div>
                     </div>
                     <div className='text-xl'>{value.content}</div>
                 </div>
-                {/*<Meta*/}
-                {/*    style={{display: 'flex', marginBottom: 20}}*/}
-                {/*    avatar={<Avatar style={{marginRight: 12}} src={value.img} />}*/}
-                {/*      title={value.title}*/}
-                {/*      description={value.description}*/}
-                {/*      prefixCls={'text-white'}*/}
-                {/*/>*/}
                 <div className='flex justify-center'>
                     <Image
                         style={{objectFit: 'cover ', width: 300, height: 340}}
@@ -63,7 +67,7 @@ const Cards = () => {
                     </div>
 
                     <div>
-                        <CommentOutlined className='text-2xl hover:bg-red-700 rounded-full p-2 hover:cursor-pointer'/>
+                        <CommentOutlined className='text-2xl hover:bg-orange-500 rounded-full p-2 hover:cursor-pointer'/>
                     </div>
                     <div>
                         <ShareAltOutlined className='text-2xl hover:bg-green-700 rounded-full p-2 hover:cursor-pointer' />

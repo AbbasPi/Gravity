@@ -1,6 +1,6 @@
 import React from 'react';
 import {Col} from "antd";
-import Posts from "../Components/Posts";
+import Posts from "../features/posts/Posts";
 
 function Profile(props) {
     return (
