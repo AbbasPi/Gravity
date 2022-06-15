@@ -32,7 +32,7 @@ function About(props) {
                         offset: 0,
                     }}
                 >
-                    <img path='default' src={require('../Utils/Removal-141.png')} alt="" className={`w-[500px] -mt-[40px] hidden md:block transition ease-in-out duration-1000 ${move}`}/>
+                    <img path='default' src={require('../assets/logo.png')} alt="" className={`w-[500px] -mt-[40px] hidden md:block transition ease-in-out duration-1000 ${move}`}/>
                 </Col>
                 <Col style={{textAlign: 'center', display: "flex", justifyContent: 'center'}}
                     xs={{
@@ -68,7 +68,7 @@ function About(props) {
                         offset: 2,
                     }}
                 >
-                    <img src={require('../Utils/Removal-141.png')} alt="" className={`w-[500px]  hidden md:block -mt-[40px] transition ease-in-out duration-1000 ${move2}`}/>
+                    <img src={require('../assets/logo.png')} alt="" className={`w-[500px]  hidden md:block -mt-[40px] transition ease-in-out duration-1000 ${move2}`}/>
                 </Col>
             </Row>
         </div>

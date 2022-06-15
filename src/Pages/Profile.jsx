@@ -12,7 +12,7 @@ function Profile(props) {
         >
             <div className='w-full'>
                 <img className='h-[300px] rounded-xl w-full object-cover'
-                     alt='cover' src={require('../Utils/Wheatfield with crows.jpg')}/>
+                     alt='cover' src={'https://www.researchgate.net/publication/334463945/figure/fig3/AS:966442740621320@1607429313817/Figura-3-Vincent-Van-Gogh-Trigal-com-corvos-Oleo-sobre-tela-1890.png'}/>
                 {/*    Section 1   */}
                 <div className='bg-black h-[380px] rounded-xl relative -top-4'>
                     <div className='relative h-44 bg-black -top-24 w-44 left-12 rounded-xl shadow shadow-gray-700'>

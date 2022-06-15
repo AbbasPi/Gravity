@@ -16,7 +16,7 @@ function Nav(props) {
         <nav className='sticky z-50 bg-opacity-90 top-0 bg-black'>
             <div className='flex justify-between items-center' >
                 <Link to='/' className='flex items-center -space-x-6'>
-                <img src={require('../Utils/Removal-141.png')} alt='logo' className='w-32 hover:cursor-pointer inline'/>
+                <img src={require('../assets/logo.png')} alt='logo' className='w-32 hover:cursor-pointer inline'/>
                 <span className='text-gray-100 hidden md:block text-4xl items-center'>
                     GRAVITY
                 </span>
