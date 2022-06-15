@@ -39,17 +39,17 @@ function Posts({profile}) {
                 {
                  profile !== true &&
                 <div  style={{ position:'relative'}}>
-                    <label className='ml-3'> Author:  </label>
+                    <label className='ml-3 text-2xl'> Author:  </label>
                     <Input value={author} onChange={e=> setAuthor(e.target.value)}
-                                     style={{background:'black', minHeight: '50px', color: 'white'}} placeholder="What's Up?"/>
-                    <label className='ml-3'> Content:  </label>
+                                     style={{background:'black', minHeight: '50px', color: 'white'}}/>
+                    <label className='ml-3 text-2xl'> Content:  </label>
                     <Input.TextArea  value={content} onChange={e=> setContent(e.target.value)}
-                                     style={{background:'black', minHeight: '100px', color: 'white'}} placeholder="What's Up?"/>
-                    <label className='ml-3'> Image URL:  </label>
+                                     style={{background:'black', minHeight: '100px', color: 'white'}}/>
+                    <label className='ml-3 text-2xl'> Image URL:  </label>
                     <Input  value={image} onChange={e=> setImage(e.target.value)}
-                                     style={{background:'black', minHeight: '60px', color: 'white'}} placeholder="What's Up?"/>
+                                     style={{background:'black', minHeight: '60px', color: 'white'}}/>
                 <Button disabled={!canSave} onClick={onPostAdded}
-                    style={{position: "absolute", right:12, bottom: 12, zIndex: '100', borderRadius: 12, width: 100, border: "blue", color:'blue'}}>Post</Button>
+                    style={{borderRadius: 12, width: 100, color:'blue', marginLeft: 2, marginTop: 12, fontSize: 17}}>Post</Button>
                 </div>
                 }
                 <div>
